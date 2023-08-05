@@ -1,0 +1,122 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block body %}
+        <div class="containerx animate__animated animate__fadeIn">
+            <div class="backscore animate__animated ">
+                <img src="{% static './images/slider1.jpg ' %}" width="100%" alt="loading...">
+            </div>
+            <div class="background" id="anime">
+
+                <div class="ani animate__animated animate__fadeInDown">
+                    <div class="wrapper">
+                        <div class="static-txt">We Are : </div>
+                        <div>
+                            <ul class="dynamic-txt">
+                                <li class="list"><span class="ttxt">............</span></li>
+                                <li class="list"><span class="ttxt">HEALER</span></li>
+                                <li class="list"><span class="ttxt">HELPER</span></li>
+                                <li class="list"><span class="ttxt">QURABLE</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="content animate__animated animate__fadeInLeft">
+                    <p>create a life that looks good on the inside, nor one that just looks good on the outside.</p>
+                </div>
+
+            </div>
+        </div>
+        <div class="head-container ">
+            <div class="pri-container">
+                <div class="pri-img">
+                    <img src="{% static './images/best-psychiatrists.jpg ' %}" alt="">
+                </div>
+                <div class="pri-content">
+
+                    <h1 class="pri-title">
+                        Welcome To Psychological care</h1>
+                    <p class="pri-subtitle">
+                        Top level physiotherapy professional, evidenced based treatment. We diagnose the cause and
+                        provide
+                        you
+                        with
+                        the best possible treatment.
+                    </p>
+                </div>
+
+                <button class="continue-application">
+                    <div>
+                        <div class="pencil"></div>
+                        <div class="folder">
+                            <div class="top">
+                                <svg viewBox="0 0 24 27">
+                                    <path
+                                        d="M1,0 L23,0 C23.5522847,-1.01453063e-16 24,0.44771525 24,1 L24,8.17157288 C24,8.7020058523.7892863,9.21071368 
+                                23.4142136,9.58578644 L20.5857864,12.4142136 C20.2107137,12.7892863 20,13.2979941 20,13.8284271 L20,26 
+                                C20,26.5522847 19.5522847,27 19,27 L1,27 
+                                C0.44771525,27 6.76353751e-17,26.5522847 0,26 L0,1 C-6.76353751e-17,0.44771525 0.44771525,1.01453063e-16 1,0Z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div class="paper"></div>
+                        </div>
+                    </div>
+                    Book Appointment
+                </button>
+
+            </div>
+            <div class="sec-container">
+                <h1 class="sec-title">
+                    Services from our best Psychiatrists</h1>
+                <div class="first-row">
+                    <div class="f-row"><a href="parent2"><img src="{% static './images/myselfimg.png'%}"
+                                alt=""></a>myself</div>
+                    <div class="f-row"><a href="parent1"><img src="{% static './images/parentingimg.png'%}"
+                                 alt=""></a>Parenting</div>
+                </div>
+                <div class="secondary-row">
+                    <div class="s-row"><a href="parent3"><img src="{% static './images/teenimg.png'%}"
+                                alt=""></a>Teen</div>
+                    <div class="s-row"><a href="parent4"><img src="{% static './images/coupleimg.png'%}"
+                                alt=""></a>Couple</div>
+
+                </div>
+            </div>
+        </div>
+        <!-- ---------------second page end------------ -->
+        <!-- --------------service------------ -->
+        <section class="service" id="ser">
+            <div class="container describe" id="serhead">
+                <h2 class="title"><br>FIND THE BEST THERAPIST FOR YOU</h2>
+            </div>
+        </section>
+        <div class="cardsallign ">
+            {% for n in card_service %}
+            <a href="{% url 'main:inside' n.card_name %}" style="text-decoration:none; color:black; ">
+            <div class="cards animate__animated animate__fadeInUp ">
+                <div class="thumbnail">
+                    <img src="{{ n.card_image.url }}" width="100%" alt="loading ...">
+                </div>
+                <div class="points">
+                    <h2 id="ch2"><br>{{ n.card_name }}</h2>
+                    <h6 id="ch6"><br>{{ n.card_details }}</h6>
+                </div>
+            </div>
+            </a>
+            {% endfor %}
+        </div>
+        <div class="vid">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Yy8e4sw70ow"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        </div>
+        <footer>
+            <div class="map">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d290533.2647578039!2d75.60947208819!3d27.030884548292978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396dc9763e6030f1%3A0x4137675e5cf54360!2sJECRC%20Foundation!5e0!3m2!1sen!2sin!4v1669315348673!5m2!1sen!2sin"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </footer>
+{% endblock %}

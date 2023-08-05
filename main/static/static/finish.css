@@ -1,0 +1,33 @@
+#serhead h2{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.vid{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.vid iframe{
+    border-radius: 15px;
+    margin-bottom: 50px;
+    width: 80vw;
+    height: 80vh;
+}
+
+footer{
+    border-top: 2px solid white;
+    height: 30px;
+    bottom: 0;
+}
+.map{
+    display: flex;
+    justify-content: center;
+    margin: 12px;
+}
+.map iframe{
+    border-radius: 15px;
+    width: 80vw;
+    height: 80vh;
+}

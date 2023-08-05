@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
+
+.navbar ul li a{
+    list-style: none;
+    text-decoration: none;
+    margin: 40px;
+    color: grey;
+    font-family: 'Poppins', sans-serif;
+}
+.navbar ul li a:hover{
+    color:black;
+    transition-delay: 0.1s;
+    border-bottom: 3px #01BAEF solid;
+}
+.navbar ul li{
+    list-style: none;
+}
+.nav-menu{
+    display: flex;
+    flex-direction: row;
+}
+
+nav{
+    display: flex;
+    flex-direction: row;
+    background-color: whitesmoke;
+}
+.navbar{
+    display: flex;
+    align-items: center;
+}
+/* 
+.logo{
+    margin-top: 35px;
+} */
+/* burger */
+
+.btns{
+    padding: 10px 20px 10px 20px;
+    color: rgb(26, 23, 23);
+    background-color: #28282B;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+}
+.bar{
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: black;
+}
+
+#signupw {
+    border-radius: 3px;
+    margin-top: 20px;
+    display: flex;
+    position: absolute;
+    right: 60px;    
+}
+
+#idsign{
+    text-decoration: none;
+    color: white;
+}
+
+#idsign:hover{
+    color: #FAFAD2;
+}
+
+/* middle */
+
+.backscore{
+   position: relative;
+}
+
+.containerx{
+    display: flex;
+    position: relative;
+}
+
+#anime{
+    z-index: 7;
+    display: flex;
+    position: absolute;
+    margin-top: 10%;
+    margin-left: 60%;
+}
+
+#anime{
+    display: flex;
+    flex-direction: column;
+}
+
+.content{
+    margin-top: 30px;
+    font-family:  'Kalam', cursive;
+    font-weight:bolder;
+    font-size: 3rem;
+}
+
+@media(max-width:1175px){
+    .hamburger{
+        display: block;
+    }
+    .hamburger.active .bar:nth-child(2){
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(1){
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3){
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    
+    .nav-menu{
+        position: fixed;
+        left: -100%;
+        top: 80px;
+        gap: 0;
+        flex-direction: column;
+        background-color: whitesmoke;
+        text-align:center;
+        transition: 0.3s;
+        height: 100%;
+        z-index: 8;
+    }
+    .nav-item{
+        margin:25px 0;
+    }
+    .nav-menu.active{
+        left: 0;
+    }
+}
+
+
+@media(max-width:1312px){
+    .content{
+        display: none;
+    }
+    #anime{
+        margin-top: 15%;
+    }
+}

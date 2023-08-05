@@ -1,0 +1,94 @@
+
+/* cards */
+
+.cards {
+    overflow: hidden;
+    display: grid;
+    background-color: white;
+    width: 300px;
+    height: 350px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.415);
+    margin-left: 30px;
+    border-radius: 12px;
+
+}
+
+.cards:hover {
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.65);
+}
+
+.cards p {
+    display: flex;
+    text-align: center;
+    font-family: 'Pacifico', cursive;
+}
+
+.cards .points #ch2 {
+    margin-top: -8px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+#ch6 {
+    padding: 25px;
+    font-size: 12.5px;
+}
+
+.cards .thumbnail img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    margin: auto;
+    padding: auto;
+    z-index: 1;
+    height: 270px;
+}
+
+.cards .thumbnail img:hover {
+    opacity: 30%;
+    width: 300px;
+    height: 350px;
+    position: absolute;
+    transition: smooth;
+}
+
+.cardsallign {
+    row-gap: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly ;
+    margin: 8rem 0 8rem 0;
+    gap: 4.5rem;
+}
+
+.points h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+}
+
+
+.points {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* @media(max-width: 530px) {
+    .thumbnail.hover {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        margin: auto;
+        padding: auto;
+        z-index: 1;
+        height: 270px;
+    }
+}
+ */

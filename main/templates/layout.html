@@ -1,0 +1,72 @@
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static './static/stylen.css' %}">
+        <link rel="stylesheet" href="{% static './static/animation.css' %}">
+        <link rel="stylesheet" href="{% static './static/test.css' %}">
+        <link rel="stylesheet" href="{% static './static/cards.css' %}">
+        <link rel="stylesheet" href="{% static './static/finish.css' %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+        <link href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" rel="stylesheet">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <nav>
+            <div class="logo">
+                <img src="{% static './images/logo2.png' %}" width="120px" alt="loading...">
+            </div>
+            <div class="navbar ">
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="/" class="nav-link">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" class="nav-link">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" class="nav-link">SERVICES</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" class="nav-link">BOOK APPOINTMENT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" class="nav-link">ABOUT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" class="nav-link">Contact Us</a>
+                    </li>
+
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+            {% comment %} </div class="signup">
+            <!-- Button trigger modal -->
+            <button type="button" id="signupw" class="btns">
+                <a id="idsign" class="colorhover" href="{%static 'signup.html'%}">SIGN UP</a>
+            </button>
+            </div> {% endcomment %}
+        </nav>
+        {% block body %}
+        {% endblock %}
+
+        <footer>
+            
+        </footer>
+    </body>
+    
+    <script src="{% static './static/scriptmain.js'%}"></script>
+    <script src="{% static './static/uurl.js'%}"></script>
+
+</html>
+{% endblock %}
