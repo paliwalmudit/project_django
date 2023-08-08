@@ -11,23 +11,23 @@ def index(request):
     }
     return render(request, 'index.html',Data) 
 
+def book(request):
+    display=Cards.objects.all()
+    Data={
+        'display':display,
+    }
+    return render(request, 'book.html',Data) 
+
+def service(request):
+    display=Cards.objects.all()
+    data={"display":display}
+    return render(request,"services.html",data)
+
 def inside(request,name):
     display=Cards.objects.filter(card_name=name)
     data={'display':display,}
     return render(request, 'inside.html',data) 
 
-def book(request,name):
-    display=Cards.objects.all()
-    data={'display':display,}
-    print("requested")
-    return render(request, 'book.html',data) 
-
-def service(request,name):
-    display=Cards.objects.all()
-    data={"display":display}
-    return render(request,"services.html",data)
-
-def faq(request,name):
+def faq(request):
     return render(request,"FAQ.html")
-
 
