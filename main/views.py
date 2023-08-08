@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import *
+from django.http import HttpResponse
 
 # Create your views here.
 
@@ -14,6 +15,12 @@ def inside(request,name):
     display=Cards.objects.filter(card_name=name)
     data={'display':display,}
     return render(request, 'inside.html',data) 
+
+def book(request,name):
+    display=Cards.objects.all()
+    data={'display':display,}
+    print("requested")
+    return render(request, 'book.html',data) 
 
 def parent1(request):
     return render(request, 'parent1.html')
