@@ -38,12 +38,6 @@
                         {% for n in display %}
                             <option value="{{ n.card_name }}">{{ n.card_name }}</option>
                         {% endfor %}
-                        {% comment %} <option value="meeting">Meeting</option>
-                        <option value="Business">Business</option>
-                        <option value="lunch">Lunch</option>
-                        <option value="skype">Skype</option>
-                        <option value="movie">Movie</option>
-                        <option value="couple_date">Date</option> {% endcomment %}
                     </select>
                     <label for="appointment_description">Appointment Description:</label>
                     <textarea id="appointment_description" name="appointment_description"

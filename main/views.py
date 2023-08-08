@@ -22,11 +22,12 @@ def book(request,name):
     print("requested")
     return render(request, 'book.html',data) 
 
-def parent1(request):
-    return render(request, 'parent1.html')
-def parent2(request):
-    return render(request, 'parent2.html')
-def parent3(request):
-    return render(request, 'parent3.html')
-def parent4(request):
-    return render(request, 'parent4.html')
+def service(request,name):
+    display=Cards.objects.all()
+    data={"display":display}
+    return render(request,"services.html",data)
+
+def faq(request,name):
+    return render(request,"FAQ.html")
+
+

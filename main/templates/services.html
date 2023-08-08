@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+{% block body %}
+    <div class="cardsallign ">
+    {% for n in display %}
+        <a href="{% url 'main:inside' n.card_name %}" style="text-decoration:none; color:black; ">
+            <div class="cards animate__animated animate__fadeInUp ">
+                <div class="thumbnail">
+                    <img src="{{ n.card_image.url }}" width="100%" alt="loading ...">
+                </div>
+                <div class="points">
+                    <h2 id="ch2"><br>{{ n.card_name }}</h2>
+                    <h6 id="ch6"><br>{{ n.card_details }}</h6>
+                </div>
+            </div>
+        </a>
+    {% endfor %}
+    </div>
+{% endblock %}
