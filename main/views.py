@@ -16,7 +16,25 @@ def book(request):
     Data={
         'display':display,
     }
+        
     return render(request, 'book.html',Data) 
+
+def appointment_form(request):
+    display=Cards.objects.all()
+    if request.method=='POST':
+        name=request.POST['user_name']
+        email=request.POST['user_email']
+        app_for=request.POST['appointment_for']
+        date=request.POST['date']
+        time=request.POST['time']
+        
+        app_form=Appointments(name=name,email=email,app_for=app_for,date=date,time=time)
+        
+        if app_form:
+            app_form.save()
+            return render(request,'index.html',{'message':"appointment booked return to index"})
+        else:
+            return render(request,'book.html',{'display':display,'n':"please recheck all fields and re-submit form"})
 
 def service(request):
     display=Cards.objects.all()

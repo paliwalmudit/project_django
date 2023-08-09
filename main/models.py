@@ -11,3 +11,14 @@ class Cards(models.Model):
     
     def __str__(self):
         return self.card_name
+    
+class Appointments(models.Model):
+    name=models.CharField(max_length=50)
+    email=models.EmailField(max_length=254)
+    app_for=models.CharField(max_length=50)
+    date=models.DateField()
+    time=models.TimeField()
+    
+    def __str__(self):
+        return self.name
+    
