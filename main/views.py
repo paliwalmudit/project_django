@@ -1,7 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import *
 from django.http import HttpResponse
-
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate,login,logout
+from django.db import IntegrityError
 # Create your views here.
 
 def index(request):
@@ -35,6 +37,53 @@ def appointment_form(request):
             return render(request,'index.html',{'message':"appointment booked return to index"})
         else:
             return render(request,'book.html',{'display':display,'n':"please recheck all fields and re-submit form"})
+
+def register(request):
+    return render(request,"register.html")
+
+def user_signup(request):
+    if request.method=='POST':
+        uname=request.POST['username']
+        fname=request.POST['fname']
+        lname=request.POST['lname']
+        email=request.POST['email']
+        pword=request.POST['password']
+        cword=request.POST['c_password']
+        
+        
+        if pword==cword:
+            try:
+                my_user=User.objects.create_user(username=uname,first_name=fname,last_name=lname,email=email,password=pword)
+                my_user.save()
+            except IntegrityError:
+                return render(request, "register.html", {
+                    "message": "Username already taken."
+                })
+            login(request, my_user)
+            
+            return render(request,"index.html")
+        
+        else:
+            return render(request,"register.html",{'message':"password and confirm password must match!!"})
+
+def user_login(request):
+    if request.method=='POST':
+        username=request.POST.get('username')
+        pword=request.POST.get('password')
+     
+        user=authenticate(request,username=username,password=pword)
+        
+        if user is not None:
+            login(request,user)
+            
+            return render(request,"index.html")
+            
+        else:
+            return render(request,"register.html",{'message':"Invalid Username or Password!!"})
+
+def user_logout(request):
+    logout(request)
+    return render(request,"index.html")
 
 def service(request):
     display=Cards.objects.all()

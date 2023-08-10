@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block body %}
+<head>
+   <link rel="stylesheet" href="{% static './static/register.css' %}">
+</head>
+<div class="wrapper">
+   {{message}}
+    <div class="card-switch">
+        <label class="switch">
+           <input type="checkbox" class="toggle">
+           <span class="slider"></span>
+           <span class="card-side"></span>
+           <div class="flip-card__inner">
+              <div class="flip-card__front">
+                 <div class="title">Log in</div>
+                 <form class="flip-card__form" action="{% url 'main:user_login' %}" method="POST">{% csrf_token %}
+                    <input class="flip-card__input" name="username" placeholder="Enter Username" type="text" required>
+                    <input class="flip-card__input" name="password" placeholder="Password" type="password" required>
+                    <button class="flip-card__btn">Let`s go!</button>
+                 </form>
+              </div>
+              <div class="flip-card__back">
+                 <div class="title">Sign up</div>
+                 <form class="flip-card__form" action="{% url 'main:user_signup' %}" method="POST">{% csrf_token %}
+                    <input class="flip-card__input" name="fname" placeholder="First Name" type="text" required>
+                    <input class="flip-card__input" name="lname" placeholder="Last Name" type="text" required>
+                    <input class="flip-card__input" name="username" placeholder="Username" type="text" required>
+                    <input class="flip-card__input" name="email" placeholder="Email" type="email" required>
+                    <input class="flip-card__input" name="password" placeholder="Password" type="password" required>
+                    <input class="flip-card__input" name="c_password" placeholder="Confirm Password" type="password" required>
+                    <button class="flip-card__btn">Confirm!</button>
+                 </form>
+              </div>
+           </div>
+        </label>
+    </div>   
+</div>
+{% endblock %}

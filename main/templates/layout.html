@@ -49,12 +49,18 @@
                     <span class="bar"></span>
                 </div>
             </div>
-            {% comment %} </div class="signup">
+            </div class="signup">
             <!-- Button trigger modal -->
-            <button type="button" id="signupw" class="btns">
-                <a id="idsign" class="colorhover" href="{%static 'signup.html'%}">SIGN UP</a>
-            </button>
-            </div> {% endcomment %}
+            {% if request.user.is_authenticated %}
+                <button type="button" id="signupw" class="btns">
+                    <a id="idsign" class="colorhover" href="{% url 'main:user_logout' %}">LOGOUT</a>
+                </button>
+            {% else %}
+                <button type="button" id="signupw" class="btns">
+                    <a id="idsign" class="colorhover" href="{% url 'main:register' %}">JOIN</a>
+                </button>
+            {% endif %}
+            </div>
         </nav>
         {% block body %}
         {% endblock %}
