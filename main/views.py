@@ -98,3 +98,15 @@ def inside(request,name):
 def faq(request):
     return render(request,"FAQ.html")
 
+def contactus(request):
+    if request.method=='POST':
+        fname=request.POST['fname']
+        lname=request.POST['lname']
+        email=request.POST['email']
+        subject=request.POST['subject']
+        message=request.POST['message']
+        
+        form=Contactus(fname=fname,lname=lname,email=email,subject=subject,message=message)
+        form.save()
+        return redirect('/')
+    return render(request,'contactus.html')

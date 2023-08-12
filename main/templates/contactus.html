@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block body %}
+<head>
+    <link rel="stylesheet" href="{% static './static/contactus.css' %}">
+</head>
+<form class="form" method="POST" action="">
+    {% csrf_token %}
+    <div class="flex">
+        <label>
+            <input class="input" type="text" placeholder="" name="fname" required>
+            <span>first name</span>
+        </label>
+
+        <label>
+            <input class="input" type="text" placeholder="" name="lname" required>
+            <span>last name</span>
+        </label>
+    </div>  
+            
+    <label>
+        <input class="input" type="email" placeholder="" name="email" required>
+        <span>email</span>
+    </label> 
+        
+    <label>
+        <input class="input" placeholder="" type="text" name="subject" required>
+        <span>Subject</span>
+    </label>
+    <label>
+        <textarea class="input01" placeholder="" rows="3" name="message" required></textarea>
+        <span>message</span>
+    </label>
+    
+    <button href="#" class="fancy">
+      <span class="top-key"></span>
+      <span class="text">submit</span>
+      <span class="bottom-key-1"></span>
+      <span class="bottom-key-2"></span>
+    </button>
+</form>
+{% endblock %}
