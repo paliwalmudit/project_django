@@ -121,3 +121,6 @@ def profile(request):
     display=Appointments.objects.filter(usern=usern)
 
     return render(request,'profile.html',{'display':display})
+
+def about(request):
+    return render(request,'about.html')

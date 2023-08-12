@@ -17,5 +17,6 @@ urlpatterns = [
     path('logout/',views.user_logout,name='user_logout'),
     path('Contact_us/',views.contactus,name='contact'),
     path('Profile/',views.profile,name='profile'),
+    path('About/',views.about,name='about'),
       
 ]
