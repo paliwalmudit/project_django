@@ -39,6 +39,11 @@ nav{
     padding: 10px 20px 10px 20px;
     color: rgb(26, 23, 23);
     background-color: #28282B;
+    border-radius: 3px;
+    margin-top: 20px;
+    display: flex;
+    position: absolute;
+    right: 60px;
 }
 
 .hamburger {
@@ -57,13 +62,6 @@ nav{
     background-color: black;
 }
 
-#signupw {
-    border-radius: 3px;
-    margin-top: 20px;
-    display: flex;
-    position: absolute;
-    right: 60px;    
-}
 
 #idsign{
     text-decoration: none;
