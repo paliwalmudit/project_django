@@ -24,13 +24,17 @@ def book(request):
 def appointment_form(request):
     display=Cards.objects.all()
     if request.method=='POST':
+        if request.user.is_authenticated:
+            username=request.user.username
+
+        usern=username
         name=request.POST['user_name']
         email=request.POST['user_email']
         app_for=request.POST['appointment_for']
         date=request.POST['date']
         time=request.POST['time']
         
-        app_form=Appointments(name=name,email=email,app_for=app_for,date=date,time=time)
+        app_form=Appointments(name=name,email=email,app_for=app_for,date=date,time=time,usern=usern)
         
         if app_form:
             app_form.save()
@@ -110,3 +114,10 @@ def contactus(request):
         form.save()
         return redirect('/')
     return render(request,'contactus.html')
+
+def profile(request):
+    if request.user.is_authenticated:
+        usern=request.user.username
+    display=Appointments.objects.filter(usern=usern)
+
+    return render(request,'profile.html',{'display':display})

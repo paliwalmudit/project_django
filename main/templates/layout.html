@@ -41,7 +41,11 @@
                     <li class="nav-item">
                         <a href="{% url 'main:contact' %}" class="nav-link">Contact Us</a>
                     </li>
-
+                    {% if request.user.is_authenticated %}
+                    <li class="nav-item">
+                        <a href="{% url 'main:profile' %}" class="nav-link">Profile</a>
+                    </li>
+                    {% endif %}
                 </ul>
                 <div class="hamburger">
                     <span class="bar"></span>

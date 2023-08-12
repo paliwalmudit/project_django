@@ -18,6 +18,7 @@ class Appointments(models.Model):
     app_for=models.CharField(max_length=50)
     date=models.DateField()
     time=models.TimeField()
+    usern=models.CharField(max_length=254, default=None, null=True, primary_key=False)
     
     def __str__(self):
         return self.name
