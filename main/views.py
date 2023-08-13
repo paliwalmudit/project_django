@@ -65,7 +65,7 @@ def user_signup(request):
                 })
             login(request, my_user)
             
-            return render(request,"index.html")
+            return redirect('/')
         
         else:
             return render(request,"register.html",{'message':"password and confirm password must match!!"})
@@ -80,14 +80,14 @@ def user_login(request):
         if user is not None:
             login(request,user)
             
-            return render(request,"index.html")
+            return redirect('/')
             
         else:
             return render(request,"register.html",{'message':"Invalid Username or Password!!"})
 
 def user_logout(request):
     logout(request)
-    return render(request,"index.html")
+    return redirect('/')
 
 def service(request):
     display=Cards.objects.all()
