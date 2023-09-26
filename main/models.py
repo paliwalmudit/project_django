@@ -32,3 +32,12 @@ class Contactus(models.Model):
     
     def __str__(self):
         return self.fname
+    
+class Blog(models.Model):
+    blog_name=models.CharField(max_length=254)
+    blog_content=models.TextField()
+    blog_author=models.CharField(max_length=254)
+    
+    def __str__(self):
+        return self.blog_name
+    

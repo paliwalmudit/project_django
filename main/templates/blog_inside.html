@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block body %}
+<head>
+    <link rel="stylesheet" href="{% static './static/inside.css'%}">
+</head>
+{% for n in data %}
+<div class="section">
+    <div class="container">
+        <div class="content-section">
+            <div class="title">
+                <h1>{{ n.blog_name }}</h1>
+            </div>
+            <div class="content">
+                <h3>{{ n.blog_author }}</h3>
+                <p>{{ n.blog_content }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}

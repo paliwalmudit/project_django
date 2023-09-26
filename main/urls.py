@@ -18,5 +18,8 @@ urlpatterns = [
     path('Contact_us/',views.contactus,name='contact'),
     path('Profile/',views.profile,name='profile'),
     path('About/',views.about,name='about'),
+    path("Blogs/",views.blogs,name="blogs"),    
+    path("Add_Blogs/",views.add_blog,name="add_blog"),
+    path("blog_inside/<str:name>/",views.blog_inside,name="blog_inside"),
       
 ]

@@ -5,3 +5,4 @@ from .models import *
 admin.site.register(Cards)
 admin.site.register(Appointments)
 admin.site.register(Contactus)
+admin.site.register(Blog)

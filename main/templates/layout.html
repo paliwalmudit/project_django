@@ -11,15 +11,16 @@
         <link rel="stylesheet" href="{% static './static/test.css' %}">
         <link rel="stylesheet" href="{% static './static/cards.css' %}">
         <link rel="stylesheet" href="{% static './static/finish.css' %}">
+        <link rel="stylesheet" href="{% static './static/testvd.css' %}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
         <link href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" rel="stylesheet">
         <title>Document</title>
     </head>
 
-    <body>
+    <body> 
         <nav>
             <div class="logo">
-                <img src="{% static './images/logo2.png' %}" width="120px" alt="loading...">
+                <img src="{% static './images/logo2.png' %}" width="160px" alt="loading...">
             </div>
             <div class="navbar ">
                 <ul class="nav-menu">
@@ -36,6 +37,9 @@
                     <li class="nav-item">
                         <a href="{% url 'main:book' %}" class="nav-link">BOOK APPOINTMENT</a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{% url 'main:blogs' %}" class="nav-link">BLOGS</a>
+                    </li>
                     {% else %}
                     <li class="nav-item">
                         <a href="{% url 'main:register' %}" class="nav-link">BOOK APPOINTMENT</a>
@@ -45,11 +49,11 @@
                         <a href="{% url 'main:about' %}" class="nav-link">ABOUT</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{% url 'main:contact' %}" class="nav-link">Contact Us</a>
+                        <a href="{% url 'main:contact' %}" class="nav-link">FEEDBACK</a>
                     </li>
                     {% if request.user.is_authenticated %}
                     <li class="nav-item">
-                        <a href="{% url 'main:profile' %}" class="nav-link">Profile</a>
+                        <a href="{% url 'main:profile' %}" class="nav-link">PROFILE</a>
                     </li>
                     {% endif %}
                 </ul>
@@ -79,7 +83,17 @@
             
         </footer>
     </body>
-    
+    <script type="text/javascript">
+        (function(d, m){
+            var kommunicateSettings = 
+                {"appId":"2fd22ec3ed23015a0bcc751e356e366eb","popupWidget":true,"automaticChatOpenOnNavigation":true};
+            var s = document.createElement("script"); s.type = "text/javascript"; s.async = true;
+            s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
+            var h = document.getElementsByTagName("head")[0]; h.appendChild(s);
+            window.kommunicate = m; m._globals = kommunicateSettings;
+        })(document, window.kommunicate || {});
+    /* NOTE : Use web server to view HTML files as real-time update will not work if you directly open the HTML file in the browser. */
+    </script>
     <script src="{% static './static/scriptmain.js'%}"></script>
     <script src="{% static './static/uurl.js'%}"></script>
 

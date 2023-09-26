@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block body %}
+{{ message }}
+<form action="" method="POST" >{% csrf_token %}
+    <label for="name">Blog Name:</label>
+    <input type="text" name="name" id="">
+    <label for="name">Blog Author:</label>
+    <input type="text" name="author" id="">
+    <label for="name">Content:</label>
+    <textarea name="content" id="" cols="30" rows="10"></textarea>
+    <input type="submit" value="SUBMIT">
+</form>
+{% endblock %}

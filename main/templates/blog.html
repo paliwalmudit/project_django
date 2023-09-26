@@ -1,0 +1,79 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block body %}
+<head>
+    <style>
+        .card {
+            width: 50rem;
+            height: 20rem;
+            border-radius: 4px;
+            justify-content:space-evenly;
+            display: flex;
+            gap: 5px;
+            padding: .4em;
+          }
+          
+          .card p {
+            height: 100%;
+            flex: 1;
+            overflow: hidden;
+            cursor: pointer;
+            border-radius: 2px;
+            transition: all .5s;
+            background: #212121;
+            border: 1px solid #ff5a91;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          
+          .card p:hover {
+            flex: 4;
+          }
+          
+          .card p span {
+            min-width: 14em;
+            padding: .5em;
+            text-align: center;
+            transform: rotate(-90deg);
+            transition: all .5s;
+            text-transform: uppercase;
+            color: #ff5a91;
+            letter-spacing: .1em;
+          }
+          
+          .card p:hover span {
+            transform: rotate(0);
+          }
+          button {
+            font-family: monospace;
+            font-size: 1.5rem;
+            color: #FAFAFA;
+            text-transform: uppercase;
+            padding: 10px 20px;
+            border-radius: 10px;
+            border: 2px solid #FAFAFA;
+            background: #252525;
+            box-shadow: 3px 3px #fafafa;
+            cursor: pointer;
+            margin: 35px 0;
+          }
+          
+          button:active {
+            box-shadow: none;
+            transform: translate(3px, 3px);
+          }
+          
+    </style>
+</head>
+<body style="background-url:"./images/Doctors-bro.svg";">
+<div class="card">
+{% for n in blogs reversed %}
+    <p><span><a href="{% url 'main:blog_inside' n.blog_name  %}" style="text-decoration:none; color:#ff568e; font-size:1.6rem;">{{ n.blog_name }}</a></span></p>
+{% endfor %}
+</div>
+<button>
+    <a href="{% url 'main:add_blog' %}" style="text-decoration:none; color:#ff568e;" >add blogs</a>
+</button>
+</body>
+{% endblock %}

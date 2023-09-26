@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
 from django.db import IntegrityError
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def index(request):
@@ -114,13 +115,43 @@ def contactus(request):
         form.save()
         return redirect('/')
     return render(request,'contactus.html')
-
+@login_required
 def profile(request):
     if request.user.is_authenticated:
         usern=request.user.username
+    user_data=User.objects.filter(username=usern)
     display=Appointments.objects.filter(usern=usern)
 
-    return render(request,'profile.html',{'display':display})
+    return render(request,'profile.html',{'display':display,'data':user_data})
 
 def about(request):
     return render(request,'about.html')
+
+# try
+
+@login_required
+def blogs(request):
+    data=Blog.objects.all()
+    print("called")
+    return render(request,'blog.html',{'blogs':data})
+
+
+def add_blog(request):
+    if request.method=='POST':
+        data=Blog.objects.all()
+        name=request.POST['name']
+        for i in data:
+            if i.blog_name==name:
+                return render(request,'add_blog.html',{'message':"Blog of this name already exists!!!"})
+        
+        content=request.POST['content']
+        author=request.POST['author']
+        
+        form=Blog(blog_name=name,blog_content=content,blog_author=author)
+        form.save()
+        return redirect('/Blogs')
+    return render(request,'add_blog.html')
+
+def blog_inside(request,name):
+    data=Blog.objects.filter(blog_name=name)
+    return render(request,'blog_inside.html',{'data':data})

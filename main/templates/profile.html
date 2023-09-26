@@ -1,5 +1,10 @@
 {% extends 'layout.html' %}
 {% block body %}
+{% for n in data %}
+<h3>{{n.first_name}}</h3><br>
+<h3>{{n.last_name}}</h3><br>
+<h3>{{n.username}}</h3><br>
+{% endfor %}
 {% for n in display %}
 <h3>{{n.app_for}}</h3><br>
 {% endfor %}

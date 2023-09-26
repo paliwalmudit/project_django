@@ -1,14 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
 
+
 .navbar ul li a{
     list-style: none;
     text-decoration: none;
     margin: 40px;
-    color: grey;
+    color: wheat;
     font-family: 'Poppins', sans-serif;
 }
 .navbar ul li a:hover{
-    color:black;
+    color:grey;
     transition-delay: 0.1s;
     border-bottom: 3px #01BAEF solid;
 }
@@ -23,11 +24,13 @@
 nav{
     display: flex;
     flex-direction: row;
-    background-color: whitesmoke;
+    background: #052F4E;
+    opacity: 0.9;
 }
 .navbar{
     display: flex;
     align-items: center;
+    z-index: 7;
 }
 /* 
 .logo{
@@ -40,10 +43,11 @@ nav{
     color: rgb(26, 23, 23);
     background-color: #28282B;
     border-radius: 3px;
-    margin-top: 20px;
+    margin-top: 15px;
     display: flex;
     position: absolute;
-    right: 60px;
+    right: 40px;
+    z-index: 6;
 }
 
 .hamburger {
@@ -81,6 +85,8 @@ nav{
 .containerx{
     display: flex;
     position: relative;
+    background: #010101;
+    opacity: 0.8;
 }
 
 #anime{
@@ -100,6 +106,7 @@ nav{
     margin-top: 30px;
     font-family:  'Kalam', cursive;
     font-weight:bolder;
+    color: black;
     font-size: 3rem;
 }
 
@@ -117,6 +124,9 @@ nav{
         transform: translateY(-8px) rotate(-45deg);
     }
     
+    .navbar ul li a{
+        color:black;
+    }
     .nav-menu{
         position: fixed;
         left: -100%;

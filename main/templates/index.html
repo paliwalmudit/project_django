@@ -1,29 +1,226 @@
 {% extends 'layout.html' %}
 {% load static %}
 {% block body %}
+<head>        <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.2/css/bootstrap-grid.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"></head>
+<style>
+    :root{
+        --blue: #0188DF;
+        --black: #354046;
+    }
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none !important;
+        transition: all .2s linear;
+        text-transform: capitalize;
+    
+    }
+    *::selection{
+        background: var(--black);
+        color: #fff;
+    }
+    body{
+        overflow-x: hidden;
+        height: 3000px;
+    }
+    section{
+        overflow: hidden;
+    }
+    .test-btn{
+        height: 3.5rem;
+        width: 15rem;
+        background: var(--blue);
+        color: #fff;
+        font-size: 1.7rem;
+        text-transform: capitalize;
+        border-radius: .5rem;
+        cursor: pointer;
+        position: relative;
+        z-index: 0;
+        overflow: hidden;
+        margin: 1rem 0;
+        transition: .2s linear;
+    }
+    .test-btn::before{
+        content: "";
+        position: absolute;
+        top: -100%;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: var(--black);
+        z-index: -1;
+    }
+    .test-btn:hover:before{
+        top: 0;
+    }
+    .test-btn:hover{
+        box-shadow: .1rem .5rem var(--blue),
+                    .3rem .5rem rgba(0,0,0,.3)
+    }
+    header{
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding: 2rem 1rem;
+        z-index: 1000;
+    }
+    header .container{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    header a{
+        color: var(--black);
+    }
+    header a:hover{
+        color: var(--blue);
+    }
+    header .container .nav-logo{
+        font-size: 3rem;
+    }
+    header .container .nav-logo span{
+        color: var(--blue);
+    }
+    header .nav ul{
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        list-style: none;
+    }
+    header .nav ul li{
+        margin: 0 1rem;
+    }
+    header .nav ul li a
+    {
+        font-size: 2rem;
+    }
+    
+    header .fa-bars{
+       font-size: 3.5rem; 
+       color: var(--blue);
+       cursor: pointer;
+       display: none;
+    }
+    
+    
+    header .fa-times{
+        transform: rotate(180deg);
+    }
+    @media (max-width:768px){
+        html{
+            font-size: 55%;
+    
+        }
+        header .fa-bars{
+            display: block;
+        }
+        header .nav{
+            position: fixed;
+            top: -100rem;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            box-shadow: 0 0 100vh rgba(0,0,0,.3);
+            border-radius: .5rem;
+            border: .3rem solid var(--blue) !important;
+            background: #fff;
+            width: 95%;
+            opacity: 0;
+    
+        }
+        header .nav ul{
+            width: 100%;
+            flex-flow: column;
+            padding: 2rem 0;
+        }
+        header .nav ul li{
+            width: 100%;
+            text-align: center;
+            margin: 1rem 0;
+        }
+        header .nav ul li a{
+            font-size: 3rem;
+            display: block;
+    
+        }
+        header .nav-toggle{
+            top: 50%;
+            opacity: 1;
+        }
+    }
+    
+    .home .content h1{
+        font-size: 5rem;
+        color: var(--black);
+    }
+    .home .content h1 span{
+        color: var(--blue);
+    }
+    .home .content h3{
+        font-size: 4rem;
+        color: var(--blue);
+    }
+    .button-l {
+        font-family: monospace;
+        font-size: 1.5rem;
+        color: #FAFAFA;
+        text-transform: uppercase;
+        padding: 10px 20px;
+        border-radius: 10px;
+        border: 2px solid #FAFAFA;
+        background: #252525;
+        box-shadow: 3px 3px #fafafa;
+        cursor: pointer;
+        margin: 0 0 100px 0;
+        position:relative; 
+        left:41.5%;
+      }
+      
+      .button-l:active {
+        box-shadow: none;
+        transform: translate(3px, 3px);
+      }
+</style>
         {{message}}
-        <div class="containerx animate__animated animate__fadeIn">
-            <div class="backscore animate__animated ">
-                <img src="{% static './images/slider1.jpg ' %}" width="100%" alt="loading...">
-            </div>
-            <div class="background" id="anime">
 
-                <div class="ani animate__animated animate__fadeInDown">
-                    <div class="wrapper">
-                        <div class="static-txt">We Are : </div>
-                        <div>
-                            <ul class="dynamic-txt">
-                                <li class="list"><span class="ttxt">............</span></li>
-                                <li class="list"><span class="ttxt">HEALER</span></li>
-                                <li class="list"><span class="ttxt">HELPER</span></li>
-                                <li class="list"><span class="ttxt">QURABLE</span></li>
-                            </ul>
+         
+        <section class="home" id="home" >
+            <div class="container">
+                <div class="row min-vh-100 align-items-center text-md-left">
+                    <div class="col-md-6 pr-md-5">
+                        <img src="{% static './images/Doctors-bro.svg ' %}" width="100%" alt="doctor image">
+                    </div>
+                    <div class="col-md-6 pl-md-5 content">
+                        <div class="ani animate__animated animate__fadeInDown">
+                            <div class="wrapper">
+                                <div class="static-txt">We Are : </div>
+                                <div>
+                                    <ul class="dynamic-txt">
+                                        <li class="list"><span class="ttxt">............</span></li>
+                                        <li class="list"><span class="ttxt">HEALER</span></li>
+                                        <li class="list"><span class="ttxt">HELPER</span></li>
+                                        <li class="list"><span class="ttxt">Dr.Cure</span></li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
+                        
+                        <div class="content animate__animated animate__fadeInLeft">
+                            <p>Create a life that looks good on the inside, nor one that just looks good on the outside.</p>
+                        </div>
+                        <a href=""><button class="test-btn">Take a Test</button></a>
                     </div>
                 </div>
-                <div class="content animate__animated animate__fadeInLeft">
-                    <p>create a life that looks good on the inside, nor one that just looks good on the outside.</p>
-                </div>
+            </div>
+        </section>
+
+                
 
             </div>
         </div>
@@ -106,19 +303,14 @@
             </a>
             {% endfor %}
         </div>
-        <a href="{% url 'main:service' %}" >services</a>
+        <button class="button-l">
+            <a href="{% url 'main:service' %}" style="text-decoration:none; color:wheat;">More Services >>></a>
+        </button>
+        
         <div class="vid">
             <iframe width="560" height="315" src="https://www.youtube.com/embed/Yy8e4sw70ow"
                 title="YouTube video player" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen></iframe>
         </div>
-        <footer>
-            <div class="map">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d290533.2647578039!2d75.60947208819!3d27.030884548292978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396dc9763e6030f1%3A0x4137675e5cf54360!2sJECRC%20Foundation!5e0!3m2!1sen!2sin!4v1669315348673!5m2!1sen!2sin"
-                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-        </footer>
 {% endblock %}
